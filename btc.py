@@ -3,6 +3,13 @@ from blockchain import exchangerates
 
 class BtcModule(HalModule):
 
+	topics = {
+		'btc': '''Retrieve exchange rate for bitcoins.
+
+Usage:
+  !btc [currency]'''
+	}
+
 	def receive(self, msg):
 		coarse = msg.body.strip().split(' ')
 		args = list(filter( lambda x: len(x) > 0, coarse ))
